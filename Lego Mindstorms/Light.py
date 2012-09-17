@@ -34,3 +34,6 @@ class Light(object):
        
   def lightOff(self):
     self.light.set_light_color(Type.COLORNONE)
+
+  def howBright(self):
+    return self.light.get_color()
