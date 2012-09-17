@@ -37,21 +37,31 @@ class Mover(object):
     self.leftMotor.run(power=power)
     self.rightMotor.run(power=power)
     
+  def moveMotors(self, powerLeft, powerRight):
+    powerLeft = this._transformPower(powerLeft)
+    powerRight = this._transformPower(powerRight)
+    self.leftMotor.run(power=powerLeft)
+    self.rightMotor.run(power=powerRight)
+    
   def stopMoving(self):    
       self.leftMotor.idle()
       self.rightMotor.idle()    
     
+  def brake(self):    
+      self.leftMotor.brake()
+      self.rightMotor.brake()    
+    
   def backward(self, seconds, power):
     self.forward(seconds, -power)
 
-  def turnLeft(self, degrees):
-    self.startTurningLeft(90.0)
-    sleep(degrees / 120.0)
+  def turnLeft(self, seconds, power):
+    self.startTurningLeft(power)
+    sleep(seconds)
     self.stopTurning()
     
-  def turnRight(self, degrees):
-    self.startTurningRight(90.0)
-    sleep(degrees / 120.0)
+  def turnRight(self, seconds, power):
+    self.startTurningRight(power)
+    sleep(seconds)
     self.stopTurning()
     
   def startTurningLeft(self, power):
