@@ -1,4 +1,5 @@
 import new
+from time import sleep
 from nxt.sensor import Color20, Type
 
 class Light(object):
@@ -35,5 +36,15 @@ class Light(object):
   def lightOff(self):
     self.light.set_light_color(Type.COLORNONE)
 
-  def howBright(self):
+  def whatColour(self):
+    if self.light.get_light_color() != Type.COLORFULL :
+      self.light.get_color()
+      sleep(0.2)
     return self.light.get_color()
+
+  def howBright(self):
+    if self.light.get_light_color() != Type.COLORRED :
+      self.light.get_reflected_light(Type.COLORRED)
+      sleep(0.2)
+    return self.light.get_reflected_light(Type.COLORRED)
+
