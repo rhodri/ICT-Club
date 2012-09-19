@@ -24,7 +24,7 @@ class Mover(object):
     robot.__del__ = new.instancemethod(self.__delete__.im_func, robot, robot.__class__)
   
   def __delete__(self):
-    self.stopTurning()
+    self.stopmoving()
     parentDel()
   
   def forward(self, seconds, power):
@@ -71,7 +71,7 @@ class Mover(object):
     self.startturn(1, power)
       
   def startturn(self, direction, power):
-    movemotors(self,direction * power,-direction * power))
+    self.movemotors(direction * power,-direction * power)
 
   # Transforms power from 1-100 to 64-128
   def _transformPower(self, power):

@@ -6,12 +6,12 @@ from Shooter import Shooter
 from Light import Light
 from Sonar import Sonar
 from nxt.motor import PORT_A, PORT_B, PORT_C
-from nxt.sensor import PORT_4, PORT_3
+from nxt.sensor import PORT_4, PORT_3, PORT_2, PORT_1
 
-robot = Robot('ICTCLUB4')
+robot = Robot('ICTCLUB3')
 robot.extend(Mover(PORT_C, PORT_B))
-robot.extend(Light(PORT_4))
-robot.extend(Sonar(PORT_3))
+robot.extend(Light(PORT_1))
+robot.extend(Sonar(PORT_2))
 
 # Program start
 
@@ -24,10 +24,7 @@ while robot.howfar() > 100:
 print "Intruder"
 robot.stopmoving()
 robot.lightred()
-sleep(2)
-
-if robot.howfar() < 100:
-  robot.fire()
+sleep(10)
 
 robot.lightoff()
 print "Stop"

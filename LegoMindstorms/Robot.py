@@ -18,7 +18,7 @@ class Robot(object):
       'ICTCLUB1' : '00:16:53:1A:77:D7',
       'ICTCLUB2' : '00:16:53:1A:58:41',
       'ICTCLUB3' : '00:16:53:1A:55:EB',
-      'ICTCLUB4' : '00:16:53:14:24:88'
+      'ICTCLUB4' : '00:16:53:14:24:88',
       'ICTCLUB5' : '00:16:53:14:87:D1'
     }
     if name in addresses:

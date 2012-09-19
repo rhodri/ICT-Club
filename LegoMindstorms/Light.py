@@ -18,7 +18,7 @@ class Light(object):
     robot.__del__ = new.instancemethod(self.__delete__.im_func, robot, robot.__class__)
       
   def __delete__(self):
-    self.lightOff()
+    self.lightoff()
     parentDel()
     
   def lightblue(self):
