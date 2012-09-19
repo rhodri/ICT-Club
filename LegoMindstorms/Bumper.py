@@ -8,5 +8,5 @@ class Bumper(object):
   def __extend__(self, robot):
     robot.touch = Touch(robot.brick, self.touchPort)
 
-  def isTouching(self):
+  def istouching(self):
     return self.touch.get_sample()

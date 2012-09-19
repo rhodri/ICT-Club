@@ -3,23 +3,23 @@ from time import sleep
 
 print "Connecting to ICTCLUB1"
 robot1 = Robot(True, 'ICTCLUB1')
-robot1.lightGreen()
+robot1.lightgreen()
 sleep(0.5)
-robot1.lightOff()
+robot1.lightoff()
 print "Connecting to ICTCLUB2"
 robot2 = Robot(True, 'ICTCLUB2')
-robot2.lightGreen()
+robot2.lightgreen()
 sleep(0.5)
-robot2.lightOff()
+robot2.lightoff()
 print "Connecting to ICTCLUB3"
 robot3 = Robot(True, 'ICTCLUB3')
-robot3.lightGreen()
+robot3.lightgreen()
 sleep(0.5)
-robot3.lightOff()
+robot3.lightoff()
 print "Connecting to ICTCLUB4"
 robot4 = Robot(True, 'ICTCLUB4')
-robot4.lightGreen()
+robot4.lightgreen()
 sleep(0.5)
-robot4.lightOff()
+robot4.lightoff()
 
 

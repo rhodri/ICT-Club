@@ -21,28 +21,28 @@ class Light(object):
     self.lightOff()
     parentDel()
     
-  def lightBlue(self):
+  def lightblue(self):
     self.light.set_light_color(Type.COLORBLUE)
 
-  def lightRed(self):
+  def lightred(self):
     self.light.set_light_color(Type.COLORRED)
             
-  def lightGreen(self):
+  def lightgreen(self):
     self.light.set_light_color(Type.COLORGREEN)
      
-  def lightAll(self):
+  def lightall(self):
     self.light.set_light_color(Type.COLORFULL)
        
-  def lightOff(self):
+  def lightoff(self):
     self.light.set_light_color(Type.COLORNONE)
 
-  def whatColour(self):
+  def whatcolour(self):
     if self.light.get_light_color() != Type.COLORFULL :
       self.light.get_color()
       sleep(0.2)
     return self.light.get_color()
 
-  def howBright(self):
+  def howbright(self):
     if self.light.get_light_color() != Type.COLORRED :
       self.light.get_reflected_light(Type.COLORRED)
       sleep(0.2)

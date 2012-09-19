@@ -27,23 +27,20 @@ def stop():
 def shoot():
     robot.shoot()
     
-def turnLeft():
-    robot.startTurningLeft(30)
+def turnleft():
+    robot.startturningleft(30)
     
-def stopTurning():
-    robot.stopTurning()
+def stopturning():
+    robot.stopmoving()
     
-def turnRight():
-    robot.startTurningRight(30)
-    
-def stopTurning():
-    robot.stopTurning()
+def turnright():
+    robot.startturningright(30)
     
 controller = KeyboardController()
-controller.addListener(K_w, forward , stop)
-controller.addListener(K_SPACE,shoot ,stop )
-controller.addListener(K_LEFT,turnLeft,stopTurning)
-controller.addListener(K_RIGHT,turnRight,stopTurning)
+controller.addlistener(K_w, forward , stop)
+controller.addlistener(K_SPACE,shoot ,stop )
+controller.addlistener(K_LEFT,turnleft,stopturning)
+controller.addlistener(K_RIGHT,turnright,stopturning)
 controller.start()
 
 

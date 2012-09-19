@@ -32,18 +32,31 @@ class Mover(object):
     sleep(seconds)
     self.stopMoving()
     
-  def moveForward(self, power):
+  def backward(self, seconds, power):
+    self.forward(seconds, -power)
+
+  def turnleft(self, seconds, power):
+    self.startTurningLeft(power)
+    sleep(seconds)
+    self.stopTurning()
+    
+  def turnright(self, seconds, power):
+    self.startTurningRight(power)
+    sleep(seconds)
+    self.stopTurning()
+    
+  def moveforward(self, power):
     power = this._transformPower(power)
     self.leftMotor.run(power=power)
     self.rightMotor.run(power=power)
     
-  def moveMotors(self, powerLeft, powerRight):
+  def movemotors(self, powerLeft, powerRight):
     powerLeft = this._transformPower(powerLeft)
     powerRight = this._transformPower(powerRight)
     self.leftMotor.run(power=powerLeft)
     self.rightMotor.run(power=powerRight)
     
-  def stopMoving(self):    
+  def stopmoving(self):    
       self.leftMotor.idle()
       self.rightMotor.idle()    
     
@@ -51,33 +64,14 @@ class Mover(object):
       self.leftMotor.brake()
       self.rightMotor.brake()    
     
-  def backward(self, seconds, power):
-    self.forward(seconds, -power)
-
-  def turnLeft(self, seconds, power):
-    self.startTurningLeft(power)
-    sleep(seconds)
-    self.stopTurning()
+  def startturningleft(self, power):
+    self.startturn(-1, power)
     
-  def turnRight(self, seconds, power):
-    self.startTurningRight(power)
-    sleep(seconds)
-    self.stopTurning()
-    
-  def startTurningLeft(self, power):
-    self.startTurn(-1, power)
-    
-  def startTurningRight(self, power):
-    self.startTurn(1, power)
+  def startturningright(self, power):
+    self.startturn(1, power)
       
-  def startTurn(self, direction, power):
-    power = this._transformPower(power)
-    self.leftMotor.run(power = direction * power)
-    self.rightMotor.run(power = -direction * power)
-
-  def stopTurning(self):
-    self.leftMotor.idle()
-    self.rightMotor.idle()
+  def startturn(self, direction, power):
+    movemotors(self,direction * power,-direction * power))
 
   # Transforms power from 1-100 to 64-128
   def _transformPower(self, power):

@@ -18,12 +18,12 @@ robot.extend(Sonar(PORT_3))
 
 print "Start"
 for x in range(1,5):
-  robot.lightGreen()
+  robot.lightgreen()
   sleep(0.5)
-  robot.lightBlue
+  robot.lightblue
   sleep(0.5)
 
-robot.lightOff()
+robot.lightoff()
 print "Stop"
 
 robot.__del__()

@@ -8,7 +8,7 @@ class KeyboardController(object):
         self.keydownListeners = {}
         self.keyupListeners = {}
 
-    def addListener(self, key, keydownFunction, keyupFunction):
+    def addlistener(self, key, keydownFunction, keyupFunction):
         self.keydownListeners[key] = keydownFunction    
         self.keyupListeners[key] = keyupFunction
 

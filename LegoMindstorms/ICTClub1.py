@@ -13,6 +13,6 @@ robot.extend(Light(PORT_3))
 # Program start
 
 while 1==1:
-  #print robot.howBright()
-  print robot.whatColour()
+  #print robot.howbright()
+  print robot.whatcolour()
 

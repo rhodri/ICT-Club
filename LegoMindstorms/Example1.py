@@ -15,21 +15,21 @@ robot.extend(Sonar(PORT_3))
 
 # Program start
 
-robot.lightGreen()
-robot.startTurningLeft(10)
-while robot.howFar() > 100:
-  print robot.howFar()
+robot.lightgreen()
+robot.startturningleft(10)
+while robot.howfar() > 100:
+  print robot.howfar()
   sleep(0.5)
 
 print "Intruder"
-robot.stopTurning()
-robot.lightRed()
+robot.stopmoving()
+robot.lightred()
 sleep(2)
 
-if robot.howFar() < 100:
+if robot.howfar() < 100:
   robot.fire()
 
-robot.lightOff()
+robot.lightoff()
 print "Stop"
 
 robot.__del__()
