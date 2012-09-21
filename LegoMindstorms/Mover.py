@@ -7,15 +7,26 @@ class Mover(object):
   # A guess at how many degrees the robot will turn in one second
   degreesPerSecond = 120.0
 
-  def __init__(self, leftMotorPort, rightMotorPort):
+  def __init__(self, leftMotorPort=-1, rightMotorPort=-1, singleMotorPort=-1):
     self.leftMotorPort = leftMotorPort
     self.rightMotorPort = rightMotorPort
+    self.singleMotorPort = singleMotorPort
+    if singleMotorPort == -1:
+      print "2 port Motor"
+      self.motorPorts = 2
+    else:
+      print "1 port Motor"
+      self.motorPorts = 1
     global this
     this = self
 
   def __extend__(self, robot):
-    robot.leftMotor = Motor(robot.brick, self.leftMotorPort)
-    robot.rightMotor = Motor(robot.brick, self.rightMotorPort)
+    robot.motorPorts = self.motorPorts
+    if self.motorPorts == 2:
+      robot.leftMotor = Motor(robot.brick, self.leftMotorPort)
+      robot.rightMotor = Motor(robot.brick, self.rightMotorPort)
+    else:
+      robot.singleMotor = Motor(robot.brick, self.singleMotorPort)
     self.__extendDel(robot)
 
   def __extendDel(self, robot):
@@ -46,23 +57,36 @@ class Mover(object):
     self.stopTurning()
     
   def moveforward(self, power):
-    power = this._transformPower(power)
-    self.leftMotor.run(power=power)
-    self.rightMotor.run(power=power)
+    if self.motorPorts == 2:
+      power = this._transformPower(power)
+      self.leftMotor.run(power=power)
+      self.rightMotor.run(power=power)
+    else:
+      print "fucntion not allowed on single motor mover"
+
     
   def movemotors(self, powerLeft, powerRight):
     powerLeft = this._transformPower(powerLeft)
     powerRight = this._transformPower(powerRight)
-    self.leftMotor.run(power=powerLeft)
-    self.rightMotor.run(power=powerRight)
+    if self.motorPorts == 2:
+      self.leftMotor.run(power=powerLeft)
+      self.rightMotor.run(power=powerRight)
+    else:
+      self.singleMotor.run(power=powerRight)
     
   def stopmoving(self):    
+    if self.motorPorts == 2:
       self.leftMotor.idle()
       self.rightMotor.idle()    
+    else:
+      self.singleMotor.idle()    
     
   def brake(self):    
+    if self.motorPorts == 2:
       self.leftMotor.brake()
       self.rightMotor.brake()    
+    else:
+      self.singleMotor.brake()    
     
   def startturningleft(self, power):
     self.startturn(-1, power)
