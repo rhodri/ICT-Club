@@ -8,10 +8,10 @@ from Sonar import Sonar
 from nxt.motor import PORT_A, PORT_B, PORT_C
 from nxt.sensor import PORT_4, PORT_3, PORT_2, PORT_1
 
-robot = Robot('ICTCLUB3')
+robot = Robot('ICTCLUB6')
 robot.extend(Mover(PORT_C, PORT_B))
-robot.extend(Light(PORT_1))
-robot.extend(Sonar(PORT_2))
+robot.extend(Light(PORT_3))
+robot.extend(Sonar(PORT_1))
 
 # Program start
 
