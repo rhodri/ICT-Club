@@ -17,3 +17,5 @@ do
   echo pairable yes >> "/var/lib/bluetooth/$BTDIR/config"
   echo class 0x420100 >> "/var/lib/bluetooth/$BTDIR/config"
 done
+hciconfig hci0 name $BTNAME
+hciconfig -a
