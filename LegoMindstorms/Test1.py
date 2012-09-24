@@ -11,7 +11,12 @@ from nxt.sensor import PORT_4, PORT_3, PORT_2, PORT_1
 print "Robot1"
 robot = Robot('ICTCLUB1')
 robot.extend(Light(PORT_3))
-robot.lightred()
-sleep(1)
+
+i = 0
+while i < 60 :
+  robot.lightred()
+  sleep(1)
+  robot.lightblue()
+  sleep(1)
 robot.lightoff()
 robot.__del__()
