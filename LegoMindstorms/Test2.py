@@ -18,5 +18,6 @@ while i < 60 :
   sleep(1)
   robot.lightblue()
   sleep(1)
+  i=i+1
 robot.lightoff()
 robot.__del__()
