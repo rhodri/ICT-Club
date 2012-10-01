@@ -39,22 +39,22 @@ class Mover(object):
     parentDel()
   
   def forward(self, seconds, power):
-    self.moveForward(power)
+    self.moveforward(power)
     sleep(seconds)
-    self.stopMoving()
+    self.stopmoving()
     
   def backward(self, seconds, power):
     self.forward(seconds, -power)
 
   def turnleft(self, seconds, power):
-    self.startTurningLeft(power)
+    self.startturningleft(power)
     sleep(seconds)
-    self.stopTurning()
+    self.stopmoving()
     
   def turnright(self, seconds, power):
-    self.startTurningRight(power)
+    self.startturningright(power)
     sleep(seconds)
-    self.stopTurning()
+    self.stopmoving()
     
   def moveforward(self, power):
     if self.motorPorts == 2:

@@ -45,6 +45,6 @@ class Light(object):
   def howbright(self):
     if self.light.get_light_color() != Type.COLORRED :
       self.light.get_reflected_light(Type.COLORRED)
-      sleep(0.2)
+      sleep(0.5)
     return self.light.get_reflected_light(Type.COLORRED)
 
